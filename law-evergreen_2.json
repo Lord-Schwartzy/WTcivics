@@ -1,0 +1,2800 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Evergreen Urban planning Laws",
+  "reference": false,
+  "description": "Every laws related to the infrastructures and the urban planning of Evergreen.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "No claims allowed on public districts",
+          "UserDescription": "Protect the stores, park, city buildings and others from claims.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty",
+                    "propNameBacker": "PreviousDeedOwner",
+                    "propDisplayName": "Previous Deed Owner",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Aliases.IAlias"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                              "properties": {
+                                "Location": {
+                                  "type": "GameValueContext",
+                                  "_name": "Action Location",
+                                  "markedUpName": "<icon name=\"ClaimOrUnclaimProperty\" type=\"\">Action Location</icon>",
+                                  "contextDescription": "<i>The position of the claim.</i>"
+                                },
+                                "Districts": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.LegislationSystem.District"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<foldout><linktext><u>8 Districts</u></linktext><title>8 Districts</title><link=\"view:732:653195\"><icon name=\"District\" type=\"\"><color=#FFB800FF>Evergreen - City Buildings</color></icon></link>\r\n<link=\"view:732:653187\"><icon name=\"District\" type=\"\"><color=#9CB2E7FF>Evergreen - City Hall</color></icon></link>\r\n<link=\"view:732:653188\"><icon name=\"District\" type=\"\"><color=#CD92CEFF>Evergreen - Dock</color></icon></link>\r\n<link=\"view:732:653198\"><icon name=\"District\" type=\"\"><color=#FF009BFF>Evergreen - Landfill</color></icon></link>\r\n<link=\"view:732:653190\"><icon name=\"District\" type=\"\"><color=#DEFF00FF>Evergreen - Park</color></icon></link>\r\n<link=\"view:732:653192\"><icon name=\"District\" type=\"\"><color=#0500FFFF>Evergreen - Parking</color></icon></link>\r\n<link=\"view:732:653197\"><icon name=\"District\" type=\"\"><color=#7B00FFFF>Evergreen - Powerplant (mech/elect)</color></icon></link>\r\n<link=\"view:732:653186\"><icon name=\"District\" type=\"\"><color=#D1D0D8FF>Evergreen - Roads</color></icon></link></foldout>",
+                                  "entries": [
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - City Hall",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - Parking",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - Landfill",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - Roads",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - Powerplant (mech/elect)",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - Dock",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - City Buildings",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - Park",
+                                      "reference": true
+                                    }
+                                  ]
+                                },
+                                "Requirements": "InsideOne"
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                              "properties": {
+                                "Titles": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.Civics.Titles.Title"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1917:376284\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Evergreen - Deputy Mayor</style></icon></link>\r\n<link=\"view:2155:95643\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Evergreen Mayor</style></icon></link></foldout>",
+                                  "entries": [
+                                    {
+                                      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                      "name": "Evergreen - Deputy Mayor",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                      "name": "Evergreen Mayor",
+                                      "reference": true
+                                    }
+                                  ]
+                                },
+                                "Citizen": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who claimed or unclaimed the land.</i>"
+                                },
+                                "Requirements": "HasNone"
+                              }
+                            }
+                          ],
+                          "Comparison": "All"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Farmland claim protection",
+          "UserDescription": "Requirement for claiming this area.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty",
+                    "propNameBacker": "PreviousDeedOwner",
+                    "propDisplayName": "Previous Deed Owner",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Aliases.IAlias"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                              "properties": {
+                                "Titles": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.Civics.Titles.Title"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<link=\"view:1917:466454\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Evergreen - Farmers</style></icon></link>",
+                                  "entries": [
+                                    {
+                                      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                      "name": "Evergreen - Farmers",
+                                      "reference": true
+                                    }
+                                  ]
+                                },
+                                "Citizen": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who claimed or unclaimed the land.</i>"
+                                },
+                                "Requirements": "HasNone"
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                              "properties": {
+                                "Citizen": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who claimed or unclaimed the land.</i>"
+                                },
+                                "Skills": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.Skills.Skill"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                  "entries": [
+                                    {
+                                      "type": "Type",
+                                      "value": "Eco.Mods.TechTree.GatheringSkill"
+                                    },
+                                    {
+                                      "type": "Type",
+                                      "value": "Eco.Mods.TechTree.FarmingSkill"
+                                    }
+                                  ]
+                                },
+                                "Requirements": "HasNone",
+                                "RequiredLevel": {
+                                  "type": "GameValueWrapper",
+                                  "value": 1.0
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                              "properties": {
+                                "Location": {
+                                  "type": "GameValueContext",
+                                  "_name": "Action Location",
+                                  "markedUpName": "<icon name=\"ClaimOrUnclaimProperty\" type=\"\">Action Location</icon>",
+                                  "contextDescription": "<i>The position of the claim.</i>"
+                                },
+                                "Districts": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.LegislationSystem.District"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<link=\"view:732:653191\"><icon name=\"District\" type=\"\"><color=#0BFF65FF>Evergreen - Farmland</color></icon></link>",
+                                  "entries": [
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - Farmland",
+                                      "reference": true
+                                    }
+                                  ]
+                                },
+                                "Requirements": "InsideOne"
+                              }
+                            }
+                          ],
+                          "Comparison": "All"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "No heavy Industry allowed in the Main Store District.",
+          "UserDescription": "Citizens von't be allowed to place down table that create air and ground pollution beside the stove in the Main Store District.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>25 Crafting Tables</u></linktext><title>25 Crafting Tables</title><link=\"Item:ArrastraItem\"><style=\"Item\"><icon name=\"ArrastraItem\" type=\"\">Arrastra</icon></style></link>\r\n<link=\"Item:AssemblyLineItem\"><style=\"Item\"><icon name=\"AssemblyLineItem\" type=\"\">Assembly Line</icon></style></link>\r\n<link=\"Item:BlastFurnaceItem\"><style=\"Item\"><icon name=\"BlastFurnaceItem\" type=\"\">Blast Furnace</icon></style></link>\r\n<link=\"Item:BloomeryItem\"><style=\"Item\"><icon name=\"BloomeryItem\" type=\"\">Bloomery</icon></style></link>\r\n<link=\"Item:CementKilnItem\"><style=\"Item\"><icon name=\"CementKilnItem\" type=\"\">Cement Kiln</icon></style></link>\r\n<link=\"Item:ElectricLatheItem\"><style=\"Item\"><icon name=\"ElectricLatheItem\" type=\"\">Electric Lathe</icon></style></link>\r\n<link=\"Item:ElectricMachinistTableItem\"><style=\"Item\"><icon name=\"ElectricMachinistTableItem\" type=\"\">Electric Machinist Table</icon></style></link>\r\n<link=\"Item:ElectricPlanerItem\"><style=\"Item\"><icon name=\"ElectricPlanerItem\" type=\"\">Electric Planer</icon></style></link>\r\n<link=\"Item:ElectricStampingPressItem\"><style=\"Item\"><icon name=\"ElectricStampingPressItem\" type=\"\">Electric Stamping Press</icon></style></link>\r\n<link=\"Item:FrothFloatationCellItem\"><style=\"Item\"><icon name=\"FrothFloatationCellItem\" type=\"\">Froth Floatation Cell</icon></style></link>\r\n<link=\"Item:JawCrusherItem\"><style=\"Item\"><icon name=\"JawCrusherItem\" type=\"\">Jaw Crusher</icon></style></link>\r\n<link=\"Item:LatheItem\"><style=\"Item\"><icon name=\"LatheItem\" type=\"\">Lathe</icon></style></link>\r\n<link=\"Item:MachinistTableItem\"><style=\"Item\"><icon name=\"MachinistTableItem\" type=\"\">Machinist Table</icon></style></link>\r\n<link=\"Item:MediumShipyardItem\"><style=\"Item\"><icon name=\"MediumShipyardItem\" type=\"\">Medium Shipyard</icon></style></link>\r\n<link=\"Item:OilRefineryItem\"><style=\"Item\"><icon name=\"OilRefineryItem\" type=\"\">Oil Refinery</icon></style></link>\r\n<link=\"Item:PumpJackItem\"><style=\"Item\"><icon name=\"PumpJackItem\" type=\"\">Pump Jack</icon></style></link>\r\n<link=\"Item:RoboticAssemblyLineItem\"><style=\"Item\"><icon name=\"RoboticAssemblyLineItem\" type=\"\">Robotic Assembly Line</icon></style></link>\r\n<link=\"Item:RockerBoxItem\"><style=\"Item\"><icon name=\"RockerBoxItem\" type=\"\">Rocker Box</icon></style></link>\r\n<link=\"Item:RollingMillItem\"><style=\"Item\"><icon name=\"RollingMillItem\" type=\"\">Rolling Mill</icon></style></link>\r\n<link=\"Item:ScreeningMachineItem\"><style=\"Item\"><icon name=\"ScreeningMachineItem\" type=\"\">Screening Machine</icon></style></link>\r\n<link=\"Item:ScrewPressItem\"><style=\"Item\"><icon name=\"ScrewPressItem\" type=\"\">Screw Press</icon></style></link>\r\n<link=\"Item:SensorBasedBeltSorterItem\"><style=\"Item\"><icon name=\"SensorBasedBeltSorterItem\" type=\"\">Sensor Based Belt Sorter</icon></style></link>\r\n<link=\"Item:ShaperItem\"><style=\"Item\"><icon name=\"ShaperItem\" type=\"\">Shaper</icon></style></link>\r\n<link=\"Item:SmallShipyardItem\"><style=\"Item\"><icon name=\"SmallShipyardItem\" type=\"\">Small Shipyard</icon></style></link>\r\n<link=\"Item:StampMillItem\"><style=\"Item\"><icon name=\"StampMillItem\" type=\"\">Stamp Mill</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AssemblyLineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CementKilnItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricLatheItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LatheItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ScreeningMachineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricStampingPressItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FrothFloatationCellItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.JawCrusherItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StampMillItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RockerBoxItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MediumShipyardItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.OilRefineryItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricMachinistTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SensorBasedBeltSorterItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MachinistTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ScrewPressItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallShipyardItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PumpJackItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RoboticAssemblyLineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BloomeryItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BlastFurnaceItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ArrastraItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RollingMillItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricPlanerItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ShaperItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "GameValueContext",
+                              "_name": "PlacingObject",
+                              "markedUpName": "<icon name=\"PlaceOrPickUpObject\" type=\"\">Placing Object</icon>",
+                              "contextDescription": "<i>Was the item placed?</i>"
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                              "properties": {
+                                "Location": {
+                                  "type": "GameValueContext",
+                                  "_name": "Action Location",
+                                  "markedUpName": "<icon name=\"PlaceOrPickUpObject\" type=\"\">Action Location</icon>",
+                                  "contextDescription": "<i>The position where the interaction took place.</i>"
+                                },
+                                "Districts": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.LegislationSystem.District"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<foldout><linktext><u>3 Districts</u></linktext><title>3 Districts</title><link=\"view:732:653196\"><icon name=\"District\" type=\"\"><color=#979764FF>Evergreen - No Pollution Zone</color></icon></link>\r\n<link=\"view:732:653189\"><icon name=\"District\" type=\"\"><color=#A73A26FF>Evergreen - Shops 1</color></icon></link>\r\n<link=\"view:732:653193\"><icon name=\"District\" type=\"\"><color=#7CFAFAFF>Evergreen - Shops 2</color></icon></link></foldout>",
+                                  "entries": [
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - No Pollution Zone",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - Shops 1",
+                                      "reference": true
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - Shops 2",
+                                      "reference": true
+                                    }
+                                  ]
+                                },
+                                "Requirements": "InsideOne"
+                              }
+                            }
+                          ],
+                          "Comparison": "All"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Informations regarding the shop districts",
+          "UserDescription": "Informations for people wanting to claim in the Shops Districts.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty",
+                    "propNameBacker": "PreviousDeedOwner",
+                    "propDisplayName": "Previous Deed Owner",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Aliases.IAlias"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ClaimOrUnclaimProperty\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position of the claim.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>2 Districts</u></linktext><title>2 Districts</title><link=\"view:732:653189\"><icon name=\"District\" type=\"\"><color=#A73A26FF>Evergreen - Shops 1</color></icon></link>\r\n<link=\"view:732:653193\"><icon name=\"District\" type=\"\"><color=#7CFAFAFF>Evergreen - Shops 2</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - Shops 1",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - Shops 2",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "The following plot is part of the \"Evergreen shops 1 or 2 district” and will require an update to match a certain pattern and look to esthetically fit with the others buildings in the area. The goal is to get more cultural bonus by doing so and also have a really good-looking town. These are the baseline of what is expected. If your project needs to deviate from these, please discuss with the the Mayor and/or Deputy Mayor to confirm it complies with the expected quality level of the town.\r\n\r\nStarting day 5, every citizen is required to follow these rules or face an administrative fine of 250€. Two days later unless fixed, the town will give another fine of 300€ and use executive action to fix the shop and charge the cost at the expense of the owner. (Exception can be given for custom designs. That need to be discussed with the Mayor and/or Deputy Mayor.\r\nOn the main street, east side and west side of the roundabout (next to the town hall), shops are required to be at level (will be determinated).\r\nEvery building in the following districts: Evergreen Shops - 1 and Evergreen Shops - 2 will need to be mostly tier 2 at least, and have a front face similar to the template that will be provided.\r\n\r\nThe following rules apply to everyone building or using plots inside Evergreen : \r\nFines of 250€ per day of non compliance can be given until the situation is fixed.\r\n- No stockpiles on roofs\r\n- No windmill or waterwheel on the shops plot (after day 7)\r\n- Basement need to be fully enclosed\r\n- Nothing can be put on the roofs without an exception given by the government",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who claimed or unclaimed the land.</i>"
+                      },
+                      "ValueToDisplay": null,
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Requirement to get access to the Farmland",
+          "UserDescription": "Protect the Farmland and the crops to be managed/gathered by Evergreen - Farmers only.\n\nTo be allowed to gather or farm in this district, you need to agree to follow the rules : \n\n- Be a farmer or a gatherer at least level 2.\n- You promise to harvest only mature crops.\n- You promise to replant your harvest.\n\n*Harvesting crops that have not been planted by you is as considerated stealing and legal actions might be taken against you. You could loose the title and get fine if any of those rules are broken.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.HarvestOrHunt"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.Species"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>64 Plants</u></linktext><title>64 Plants</title><link=\"view:1936:-1\"><icon name=\"AgaveSpecies\" type=\"\"><color=#60FFFFFF>Agave Species</color></icon></link>\r\n<link=\"view:2071:-1\"><icon name=\"AmanitaMushroomSpecies\" type=\"\"><color=#60FFFFFF>Amanita Mushroom Species</color></icon></link>\r\n<link=\"view:694:-1\"><icon name=\"ArcticWillowSpecies\" type=\"\"><color=#60FFFFFF>Arctic Willow Species</color></icon></link>\r\n<link=\"view:652:-1\"><icon name=\"BarrelCactusSpecies\" type=\"\"><color=#60FFFFFF>Barrel Cactus Species</color></icon></link>\r\n<link=\"view:2451:-1\"><icon name=\"BeansSpecies\" type=\"\"><color=#60FFFFFF>Beans Species</color></icon></link>\r\n<link=\"view:4377:-1\"><icon name=\"BeetsSpecies\" type=\"\"><color=#60FFFFFF>Beets Species</color></icon></link>\r\n<link=\"view:1187:-1\"><icon name=\"BigBluestemSpecies\" type=\"\"><color=#60FFFFFF>Big Bluestem Species</color></icon></link>\r\n<link=\"view:1579:-1\"><icon name=\"BirchSpecies\" type=\"\"><color=#60FFFFFF>Birch Species</color></icon></link>\r\n<link=\"view:1500:-1\"><icon name=\"BoleteMushroomSpecies\" type=\"\"><color=#60FFFFFF>Bolete Mushroom Species</color></icon></link>\r\n<link=\"view:2628:-1\"><icon name=\"BullrushSpecies\" type=\"\"><color=#60FFFFFF>Bullrush Species</color></icon></link>\r\n<link=\"view:1508:-1\"><icon name=\"BunchgrassSpecies\" type=\"\"><color=#60FFFFFF>Bunchgrass Species</color></icon></link>\r\n<link=\"view:1299:-1\"><icon name=\"ButtonbushSpecies\" type=\"\"><color=#60FFFFFF>Buttonbush Species</color></icon></link>\r\n<link=\"view:2834:-1\"><icon name=\"CamasSpecies\" type=\"\"><color=#60FFFFFF>Camas Species</color></icon></link>\r\n<link=\"view:2291:-1\"><icon name=\"CedarSpecies\" type=\"\"><color=#60FFFFFF>Cedar Species</color></icon></link>\r\n<link=\"view:2052:-1\"><icon name=\"CeibaSpecies\" type=\"\"><color=#60FFFFFF>Ceiba Species</color></icon></link>\r\n<link=\"view:610:-1\"><icon name=\"CommonGrassSpecies\" type=\"\"><color=#60FFFFFF>Common Grass Species</color></icon></link>\r\n<link=\"view:647:-1\"><icon name=\"CookeinaMushroomSpecies\" type=\"\"><color=#60FFFFFF>Cookeina Mushroom Species</color></icon></link>\r\n<link=\"view:2917:-1\"><icon name=\"CornSpecies\" type=\"\"><color=#60FFFFFF>Corn Species</color></icon></link>\r\n<link=\"view:2890:-1\"><icon name=\"CottonSpecies\" type=\"\"><color=#60FFFFFF>Cotton Species</color></icon></link>\r\n<link=\"view:4102:-1\"><icon name=\"CreosoteBushSpecies\" type=\"\"><color=#60FFFFFF>Creosote Bush Species</color></icon></link>\r\n<link=\"view:4257:-1\"><icon name=\"CriminiMushroomSpecies\" type=\"\"><color=#60FFFFFF>Crimini Mushroom Species</color></icon></link>\r\n<link=\"view:1831:-1\"><icon name=\"DeerLichenSpecies\" type=\"\"><color=#60FFFFFF>Deer Lichen Species</color></icon></link>\r\n<link=\"view:2659:-1\"><icon name=\"DesertMossSpecies\" type=\"\"><color=#60FFFFFF>Desert Moss Species</color></icon></link>\r\n<link=\"view:4159:-1\"><icon name=\"DwarfWillowSpecies\" type=\"\"><color=#60FFFFFF>Dwarf Willow Species</color></icon></link>\r\n<link=\"view:1192:-1\"><icon name=\"FernSpecies\" type=\"\"><color=#60FFFFFF>Fern Species</color></icon></link>\r\n<link=\"view:607:-1\"><icon name=\"FilmyFernSpecies\" type=\"\"><color=#60FFFFFF>Filmy Fern Species</color></icon></link>\r\n<link=\"view:2976:-1\"><icon name=\"FirSpecies\" type=\"\"><color=#60FFFFFF>Fir Species</color></icon></link>\r\n<link=\"view:4017:-1\"><icon name=\"FireweedSpecies\" type=\"\"><color=#60FFFFFF>Fireweed Species</color></icon></link>\r\n<link=\"view:888:-1\"><icon name=\"FlaxSpecies\" type=\"\"><color=#60FFFFFF>Flax Species</color></icon></link>\r\n<link=\"view:3086:-1\"><icon name=\"HeliconiaSpecies\" type=\"\"><color=#60FFFFFF>Heliconia Species</color></icon></link>\r\n<link=\"view:4410:-1\"><icon name=\"HuckleberrySpecies\" type=\"\"><color=#60FFFFFF>Huckleberry Species</color></icon></link>\r\n<link=\"view:3954:-1\"><icon name=\"JointfirSpecies\" type=\"\"><color=#60FFFFFF>Jointfir Species</color></icon></link>\r\n<link=\"view:3145:-1\"><icon name=\"JoshuaSpecies\" type=\"\"><color=#60FFFFFF>Joshua Species</color></icon></link>\r\n<link=\"view:3375:-1\"><icon name=\"KelpSpecies\" type=\"\"><color=#60FFFFFF>Kelp Species</color></icon></link>\r\n<link=\"view:554:-1\"><icon name=\"KingFernSpecies\" type=\"\"><color=#60FFFFFF>King Fern Species</color></icon></link>\r\n<link=\"view:1222:-1\"><icon name=\"LatticeMushroomSpecies\" type=\"\"><color=#60FFFFFF>Lattice Mushroom Species</color></icon></link>\r\n<link=\"view:398:-1\"><icon name=\"LupineSpecies\" type=\"\"><color=#60FFFFFF>Lupine Species</color></icon></link>\r\n<link=\"view:2744:-1\"><icon name=\"OakSpecies\" type=\"\"><color=#60FFFFFF>Oak Species</color></icon></link>\r\n<link=\"view:157:-1\"><icon name=\"OceanSpraySpecies\" type=\"\"><color=#60FFFFFF>Ocean Spray Species</color></icon></link>\r\n<link=\"view:1919:-1\"><icon name=\"OldGrowthRedwoodSpecies\" type=\"\"><color=#60FFFFFF>Old Growth Redwood Species</color></icon></link>\r\n<link=\"view:3761:-1\"><icon name=\"OrchidSpecies\" type=\"\"><color=#60FFFFFF>Orchid Species</color></icon></link>\r\n<link=\"view:4357:-1\"><icon name=\"PalmSpecies\" type=\"\"><color=#60FFFFFF>Palm Species</color></icon></link>\r\n<link=\"view:91:-1\"><icon name=\"PapayaSpecies\" type=\"\"><color=#60FFFFFF>Papaya Species</color></icon></link>\r\n<link=\"view:1670:-1\"><icon name=\"PeatMossSpecies\" type=\"\"><color=#60FFFFFF>Peat Moss Species</color></icon></link>\r\n<link=\"view:2639:-1\"><icon name=\"PineappleSpecies\" type=\"\"><color=#60FFFFFF>Pineapple Species</color></icon></link>\r\n<link=\"view:2336:-1\"><icon name=\"PitcherPlantSpecies\" type=\"\"><color=#60FFFFFF>Pitcher Plant Species</color></icon></link>\r\n<link=\"view:1970:-1\"><icon name=\"PricklyPearSpecies\" type=\"\"><color=#60FFFFFF>Prickly Pear Species</color></icon></link>\r\n<link=\"view:1756:-1\"><icon name=\"PumpkinSpecies\" type=\"\"><color=#60FFFFFF>Pumpkin Species</color></icon></link>\r\n<link=\"view:2952:-1\"><icon name=\"RedwoodSpecies\" type=\"\"><color=#60FFFFFF>Redwood Species</color></icon></link>\r\n<link=\"view:3506:-1\"><icon name=\"RiceSpecies\" type=\"\"><color=#60FFFFFF>Rice Species</color></icon></link>\r\n<link=\"view:357:-1\"><icon name=\"SaguaroCactusSpecies\" type=\"\"><color=#60FFFFFF>Saguaro Cactus Species</color></icon></link>\r\n<link=\"view:3780:-1\"><icon name=\"SalalSpecies\" type=\"\"><color=#60FFFFFF>Salal Species</color></icon></link>\r\n<link=\"view:3680:-1\"><icon name=\"SaxifrageSpecies\" type=\"\"><color=#60FFFFFF>Saxifrage Species</color></icon></link>\r\n<link=\"view:1638:-1\"><icon name=\"SeagrassSpecies\" type=\"\"><color=#60FFFFFF>Seagrass Species</color></icon></link>\r\n<link=\"view:3052:-1\"><icon name=\"SpruceSpecies\" type=\"\"><color=#60FFFFFF>Spruce Species</color></icon></link>\r\n<link=\"view:1411:-1\"><icon name=\"SunflowerSpecies\" type=\"\"><color=#60FFFFFF>Sunflower Species</color></icon></link>\r\n<link=\"view:97:-1\"><icon name=\"SwitchgrassSpecies\" type=\"\"><color=#60FFFFFF>Switchgrass Species</color></icon></link>\r\n<link=\"view:1104:-1\"><icon name=\"TaroSpecies\" type=\"\"><color=#60FFFFFF>Taro Species</color></icon></link>\r\n<link=\"view:329:-1\"><icon name=\"TomatoesSpecies\" type=\"\"><color=#60FFFFFF>Tomatoes Species</color></icon></link>\r\n<link=\"view:1535:-1\"><icon name=\"TrilliumSpecies\" type=\"\"><color=#60FFFFFF>Trillium Species</color></icon></link>\r\n<link=\"view:1594:-1\"><icon name=\"UrchinSpecies\" type=\"\"><color=#60FFFFFF>Urchin Species</color></icon></link>\r\n<link=\"view:2227:-1\"><icon name=\"WaterweedSpecies\" type=\"\"><color=#60FFFFFF>Waterweed Species</color></icon></link>\r\n<link=\"view:3458:-1\"><icon name=\"WheatSpecies\" type=\"\"><color=#60FFFFFF>Wheat Species</color></icon></link>\r\n<link=\"view:3276:-1\"><icon name=\"WhiteBursageSpecies\" type=\"\"><color=#60FFFFFF>White Bursage Species</color></icon></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Redwood+RedwoodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Corn+CornSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.BoleteMushroom+BoleteMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.LatticeMushroom+LatticeMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Birch+BirchSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.SaguaroCactus+SaguaroCactusSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Flax+FlaxSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.BarrelCactus+BarrelCactusSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Urchin+UrchinSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.PricklyPear+PricklyPearSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.BigBluestem+BigBluestemSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.ArcticWillow+ArcticWillowSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Saxifrage+SaxifrageSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Cotton+CottonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Sunflower+SunflowerSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Heliconia+HeliconiaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Lupine+LupineSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Trillium+TrilliumSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.AmanitaMushroom+AmanitaMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Camas+CamasSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Papaya+PapayaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fir+FirSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Kelp+KelpSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Spruce+SpruceSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Tomatoes+TomatoesSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Bunchgrass+BunchgrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Oak+OakSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Joshua+JoshuaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.FilmyFern+FilmyFernSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Huckleberry+HuckleberrySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Pumpkin+PumpkinSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Orchid+OrchidSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Beets+BeetsSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Waterweed+WaterweedSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fireweed+FireweedSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CookeinaMushroom+CookeinaMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Jointfir+JointfirSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Switchgrass+SwitchgrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Beans+BeansSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Cedar+CedarSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Agave+AgaveSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fern+FernSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.DeerLichen+DeerLichenSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Salal+SalalSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.OceanSpray+OceanSpraySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.DwarfWillow+DwarfWillowSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Taro+TaroSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Seagrass+SeagrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CreosoteBush+CreosoteBushSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.PeatMoss+PeatMossSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Pineapple+PineappleSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Buttonbush+ButtonbushSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.OldGrowthRedwood+OldGrowthRedwoodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CriminiMushroom+CriminiMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.DesertMoss+DesertMossSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.PitcherPlant+PitcherPlantSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Wheat+WheatSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Palm+PalmSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Rice+RiceSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.KingFern+KingFernSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CommonGrass+CommonGrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.WhiteBursage+WhiteBursageSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Bullrush+BullrushSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Ceiba+CeibaSpecies"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Harvester",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                              "properties": {
+                                "List": [
+                                  {
+                                    "type": "GameValueContext",
+                                    "_name": "Destroyed By Block",
+                                    "markedUpName": "<icon name=\"HarvestOrHunt\" type=\"\">Destroyed By Block</icon>",
+                                    "contextDescription": "<i>Was the plant destroyed by block or not?</i>"
+                                  },
+                                  {
+                                    "type": "GameValueContext",
+                                    "_name": "DestroyingOrganism",
+                                    "markedUpName": "<icon name=\"HarvestOrHunt\" type=\"\">Destroying Organism</icon>",
+                                    "contextDescription": "<i>An animal or a plant was destroyed.</i>"
+                                  }
+                                ],
+                                "Comparison": "Any"
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                              "properties": {
+                                "Location": {
+                                  "type": "GameValueContext",
+                                  "_name": "Action Location",
+                                  "markedUpName": "<icon name=\"HarvestOrHunt\" type=\"\">Action Location</icon>",
+                                  "contextDescription": "<i>The position where the interaction took place.</i>"
+                                },
+                                "Districts": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.LegislationSystem.District"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<link=\"view:732:653191\"><icon name=\"District\" type=\"\"><color=#0BFF65FF>Evergreen - Farmland</color></icon></link>",
+                                  "entries": [
+                                    {
+                                      "type": "Eco.Gameplay.LegislationSystem.District",
+                                      "name": "Evergreen - Farmland",
+                                      "reference": true
+                                    }
+                                  ]
+                                },
+                                "Requirements": "InsideOne"
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                              "properties": {
+                                "Titles": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.Civics.Titles.Title"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<link=\"view:1917:466454\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Evergreen - Farmers</style></icon></link>",
+                                  "entries": [
+                                    {
+                                      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                      "name": "Evergreen - Farmers",
+                                      "reference": true
+                                    }
+                                  ]
+                                },
+                                "Citizen": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "Requirements": "HasNone"
+                              }
+                            }
+                          ],
+                          "Comparison": "All"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"HarvestOrHunt\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:732:653191\"><icon name=\"District\" type=\"\"><color=#0BFF65FF>Evergreen - Farmland</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - Farmland",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:1917:466454\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Evergreen - Farmers</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Evergreen - Farmers",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Protect Farmland - Part 2",
+          "UserDescription": "The second part to protect the Farmland.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ConstructOrDeconstruct"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Constructable",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Construction",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.DigOrMine"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavatable",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavation",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.DropOrPickupBlock"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DropOrPickupBlock",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Block Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.BlockItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.MoveWorldObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.MoveWorldObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "World Object Moved",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChopTree"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopTree",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.TreeSpecies"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopTree",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Logging",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlowField"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlowField",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Plow",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.TampRoad"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.TampRoad",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Tamper",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:1917:466454\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Evergreen - Farmers</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Evergreen - Farmers",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:732:653191\"><icon name=\"District\" type=\"\"><color=#0BFF65FF>Evergreen - Farmland</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - Farmland",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Hunting on claims",
+          "UserDescription": "Allow hunting on properties not owned by the citizen.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.HarvestOrHunt"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.Species"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>25 Species</u></linktext><title>25 Species</title><link=\"view:1331:-1\"><icon name=\"AgoutiSpecies\" type=\"\"><color=#60FFFFFF>Agouti Species</color></icon></link>\r\n<link=\"view:281:-1\"><icon name=\"AlligatorSpecies\" type=\"\"><color=#60FFFFFF>Alligator Species</color></icon></link>\r\n<link=\"view:1625:-1\"><icon name=\"BassSpecies\" type=\"\"><color=#60FFFFFF>Bass Species</color></icon></link>\r\n<link=\"view:833:-1\"><icon name=\"BighornSheepSpecies\" type=\"\"><color=#60FFFFFF>Bighorn Sheep Species</color></icon></link>\r\n<link=\"view:1147:-1\"><icon name=\"BisonSpecies\" type=\"\"><color=#60FFFFFF>Bison Species</color></icon></link>\r\n<link=\"view:429:-1\"><icon name=\"BlueSharkSpecies\" type=\"\"><color=#60FFFFFF>Blue Shark Species</color></icon></link>\r\n<link=\"view:2283:-1\"><icon name=\"CodSpecies\" type=\"\"><color=#60FFFFFF>Cod Species</color></icon></link>\r\n<link=\"view:765:-1\"><icon name=\"CoyoteSpecies\" type=\"\"><color=#60FFFFFF>Coyote Species</color></icon></link>\r\n<link=\"view:1208:-1\"><icon name=\"CrabSpecies\" type=\"\"><color=#60FFFFFF>Crab Species</color></icon></link>\r\n<link=\"view:124:-1\"><icon name=\"DeerSpecies\" type=\"\"><color=#60FFFFFF>Deer Species</color></icon></link>\r\n<link=\"view:1897:-1\"><icon name=\"ElkSpecies\" type=\"\"><color=#60FFFFFF>Elk Species</color></icon></link>\r\n<link=\"view:258:-1\"><icon name=\"FoxSpecies\" type=\"\"><color=#60FFFFFF>Fox Species</color></icon></link>\r\n<link=\"view:1574:-1\"><icon name=\"HareSpecies\" type=\"\"><color=#60FFFFFF>Hare Species</color></icon></link>\r\n<link=\"view:1595:-1\"><icon name=\"JaguarSpecies\" type=\"\"><color=#60FFFFFF>Jaguar Species</color></icon></link>\r\n<link=\"view:3274:-1\"><icon name=\"MountainGoatSpecies\" type=\"\"><color=#60FFFFFF>Mountain Goat Species</color></icon></link>\r\n<link=\"view:1726:-1\"><icon name=\"OtterSpecies\" type=\"\"><color=#60FFFFFF>Otter Species</color></icon></link>\r\n<link=\"view:1152:-1\"><icon name=\"PrairieDogSpecies\" type=\"\"><color=#60FFFFFF>Prairie Dog Species</color></icon></link>\r\n<link=\"view:201:-1\"><icon name=\"SalmonSpecies\" type=\"\"><color=#60FFFFFF>Salmon Species</color></icon></link>\r\n<link=\"view:2212:-1\"><icon name=\"SnappingTurtleSpecies\" type=\"\"><color=#60FFFFFF>Snapping Turtle Species</color></icon></link>\r\n<link=\"view:3871:-1\"><icon name=\"TarantulaSpecies\" type=\"\"><color=#60FFFFFF>Tarantula Species</color></icon></link>\r\n<link=\"view:1604:-1\"><icon name=\"TortoiseSpecies\" type=\"\"><color=#60FFFFFF>Tortoise Species</color></icon></link>\r\n<link=\"view:3180:-1\"><icon name=\"TroutSpecies\" type=\"\"><color=#60FFFFFF>Trout Species</color></icon></link>\r\n<link=\"view:2533:-1\"><icon name=\"TunaSpecies\" type=\"\"><color=#60FFFFFF>Tuna Species</color></icon></link>\r\n<link=\"view:1348:-1\"><icon name=\"TurkeySpecies\" type=\"\"><color=#60FFFFFF>Turkey Species</color></icon></link>\r\n<link=\"view:2244:-1\"><icon name=\"WolfSpecies\" type=\"\"><color=#60FFFFFF>Wolf Species</color></icon></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Otter+OtterSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Agouti+AgoutiSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Tuna+TunaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Deer+DeerSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Elk+ElkSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Salmon+SalmonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BighornSheep+BighornSheepSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BlueShark+BlueSharkSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Turkey+TurkeySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Bison+BisonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Tortoise+TortoiseSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Hare+HareSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Wolf+WolfSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Tarantula+TarantulaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MountainGoat+MountainGoatSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Fox+FoxSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Bass+BassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Jaguar+JaguarSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Cod+CodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Crab+CrabSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SnappingTurtle+SnappingTurtleSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Coyote+CoyoteSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Alligator+AlligatorSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PrairieDog+PrairieDogSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Trout+TroutSpecies"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Harvester",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.OnOwnedLand",
+                        "properties": {}
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.PropertyRequirements",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "AuthorizedOrNot": "UnauthorizedOnProperty"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "City Infrastructures authorisation",
+          "UserDescription": "Only the Cities Workers are allowed to work on the City Plots.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ConstructOrDeconstruct"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Constructable",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Construction",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.MoveWorldObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.MoveWorldObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "World Object Moved",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.InventoryAction"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.InventoryAction",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Moved",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.InventoryAction",
+                    "propNameBacker": "WorldObjectItem",
+                    "propDisplayName": "Storage Container",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Storage Container",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.DigOrMine"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavatable",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavation",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlowField"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlowField",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Plow",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.DropOrPickupBlock"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DropOrPickupBlock",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Block Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.BlockItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.TampRoad"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.TampRoad",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Tamper",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:1917:376290\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Evergreen - City Builders</style></icon></link>\r\n<link=\"view:1917:376284\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Evergreen - Deputy Mayor</style></icon></link>\r\n<link=\"view:2155:95643\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Evergreen Mayor</style></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Evergreen - City Builders",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Evergreen - Deputy Mayor",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Evergreen Mayor",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>6 Districts</u></linktext><title>6 Districts</title><link=\"view:732:653195\"><icon name=\"District\" type=\"\"><color=#FFB800FF>Evergreen - City Buildings</color></icon></link>\r\n<link=\"view:732:653187\"><icon name=\"District\" type=\"\"><color=#9CB2E7FF>Evergreen - City Hall</color></icon></link>\r\n<link=\"view:732:653188\"><icon name=\"District\" type=\"\"><color=#CD92CEFF>Evergreen - Dock</color></icon></link>\r\n<link=\"view:732:653190\"><icon name=\"District\" type=\"\"><color=#DEFF00FF>Evergreen - Park</color></icon></link>\r\n<link=\"view:732:653192\"><icon name=\"District\" type=\"\"><color=#0500FFFF>Evergreen - Parking</color></icon></link>\r\n<link=\"view:732:653197\"><icon name=\"District\" type=\"\"><color=#7B00FFFF>Evergreen - Powerplant (mech/elect)</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - City Hall",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - Parking",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - Powerplant (mech/elect)",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - Dock",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - City Buildings",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - Park",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Claiming on the public housing project district",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty",
+                    "propNameBacker": "PreviousDeedOwner",
+                    "propDisplayName": "Previous Deed Owner",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Aliases.IAlias"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ConstructOrDeconstruct"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Constructable",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Construction",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.DigOrMine"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavatable",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavation",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.DropOrPickupBlock"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DropOrPickupBlock",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Block Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.BlockItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.MoveWorldObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.MoveWorldObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "World Object Moved",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlowField"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlowField",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Plow",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.TampRoad"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.TampRoad",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Tamper",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.InventoryAction"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.InventoryAction",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Moved",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.InventoryAction",
+                    "propNameBacker": "WorldObjectItem",
+                    "propDisplayName": "Storage Container",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Storage Container",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ClaimOrUnclaimProperty\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position of the claim.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:732:653194\"><icon name=\"District\" type=\"\"><color=#FF0000FF>Evergreen - Row Houses</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Evergreen - Row Houses",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:1917:376284\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Evergreen - Deputy Mayor</style></icon></link>\r\n<link=\"view:1917:653138\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Evergreen - Housing Director</style></icon></link>\r\n<link=\"view:2155:95643\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Evergreen Mayor</style></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Evergreen - Housing Director",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Evergreen - Deputy Mayor",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Evergreen Mayor",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who claimed or unclaimed the land.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "placing vehicles on claims",
+          "UserDescription": "Allows \nplacing down vehicles on properties not owned by the citizen.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>19 Vehicles</u></linktext><title>19 Vehicles</title><link=\"Item:CraneItem\"><style=\"Item\"><icon name=\"CraneItem\" type=\"\">Crane</icon></style></link>\r\n<link=\"Item:ExcavatorItem\"><style=\"Item\"><icon name=\"ExcavatorItem\" type=\"\">Excavator</icon></style></link>\r\n<link=\"Item:HandPlowItem\"><style=\"Item\"><icon name=\"HandPlowItem\" type=\"\">Hand Plow</icon></style></link>\r\n<link=\"Item:IndustrialBargeItem\"><style=\"Item\"><icon name=\"IndustrialBargeItem\" type=\"\">Industrial Barge</icon></style></link>\r\n<link=\"Item:LargeCanoeItem\"><style=\"Item\"><icon name=\"LargeCanoeItem\" type=\"\">Large Canoe</icon></style></link>\r\n<link=\"Item:MediumFishingTrawlerItem\"><style=\"Item\"><icon name=\"MediumFishingTrawlerItem\" type=\"\">Medium Fishing Trawler</icon></style></link>\r\n<link=\"Item:PoweredCartItem\"><style=\"Item\"><icon name=\"PoweredCartItem\" type=\"\">Powered Cart</icon></style></link>\r\n<link=\"Item:SkidSteerItem\"><style=\"Item\"><icon name=\"SkidSteerItem\" type=\"\">Skid Steer</icon></style></link>\r\n<link=\"Item:SmallCanoeItem\"><style=\"Item\"><icon name=\"SmallCanoeItem\" type=\"\">Small Canoe</icon></style></link>\r\n<link=\"Item:SmallWoodCartItem\"><style=\"Item\"><icon name=\"SmallWoodCartItem\" type=\"\">Small Wood Cart</icon></style></link>\r\n<link=\"Item:SmallWoodenBoatItem\"><style=\"Item\"><icon name=\"SmallWoodenBoatItem\" type=\"\">Small Wooden Boat</icon></style></link>\r\n<link=\"Item:SteamTractorItem\"><style=\"Item\"><icon name=\"SteamTractorItem\" type=\"\">Steam Tractor</icon></style></link>\r\n<link=\"Item:SteamTruckItem\"><style=\"Item\"><icon name=\"SteamTruckItem\" type=\"\">Steam Truck</icon></style></link>\r\n<link=\"Item:TruckItem\"><style=\"Item\"><icon name=\"TruckItem\" type=\"\">Truck</icon></style></link>\r\n<link=\"Item:WheelbarrowItem\"><style=\"Item\"><icon name=\"WheelbarrowItem\" type=\"\">Wheelbarrow</icon></style></link>\r\n<link=\"Item:WoodCartItem\"><style=\"Item\"><icon name=\"WoodCartItem\" type=\"\">Wood Cart</icon></style></link>\r\n<link=\"Item:WoodShopCartItem\"><style=\"Item\"><icon name=\"WoodShopCartItem\" type=\"\">Wood Shop Cart</icon></style></link>\r\n<link=\"Item:WoodenBargeItem\"><style=\"Item\"><icon name=\"WoodenBargeItem\" type=\"\">Wooden Barge</icon></style></link>\r\n<link=\"Item:WoodenTransportShipItem\"><style=\"Item\"><icon name=\"WoodenTransportShipItem\" type=\"\">Wooden Transport Ship</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HandPlowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenTransportShipItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallWoodenBoatItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SkidSteerItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CraneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrialBargeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ExcavatorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WheelbarrowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamTruckItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallWoodCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MediumFishingTrawlerItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PoweredCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenBargeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamTractorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodShopCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TruckItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "PlacingObject",
+                        "markedUpName": "<icon name=\"PlaceOrPickUpObject\" type=\"\">Placing Object</icon>",
+                        "contextDescription": "<i>Was the item placed?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.PropertyRequirements",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "AuthorizedOrNot": "UnauthorizedOnProperty"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Active"
+  }
+}
