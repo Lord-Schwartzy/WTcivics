@@ -42,51 +42,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.HandPlowItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeCanoeItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.WoodenTransportShipItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.WoodCartItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallWoodenBoatItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SkidSteerItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CraneItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.IndustrialBargeItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.ExcavatorItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallCanoeItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.WheelbarrowItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SteamTruckItem"
                           },
                           {
                             "type": "Type",
@@ -94,15 +50,43 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallCanoeItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.MediumFishingTrawlerItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.PoweredCartItem"
+                            "value": "Eco.Mods.TechTree.SteamTruckItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.WoodenBargeItem"
+                            "value": "Eco.Mods.TechTree.SkidSteerItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrialBargeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenTransportShipItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HandPlowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WheelbarrowItem"
                           },
                           {
                             "type": "Type",
@@ -110,7 +94,23 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.PoweredCartItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.WoodShopCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CraneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallWoodenBoatItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenBargeItem"
                           },
                           {
                             "type": "Type",
@@ -241,36 +241,6 @@
                   }
                 ]
               }
-            },
-            {
-              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
-              "reference": false,
-              "properties": {
-                "Trigger": {
-                  "type": "Type",
-                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
-                },
-                "Configs": [
-                  {
-                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
-                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
-                    "propNameBacker": "ItemUsed",
-                    "propDisplayName": "Item Placed or Picked Up",
-                    "properties": {
-                      "List": {
-                        "type": "GamePickerList",
-                        "mustDeriveType": {
-                          "type": "Type",
-                          "value": "Eco.Gameplay.Items.WorldObjectItem"
-                        },
-                        "requiredTag": null,
-                        "internalDescription": "<style=\"ErrorLight\">None</style>",
-                        "entries": []
-                      }
-                    }
-                  }
-                ]
-              }
             }
           ],
           "IfThenBlocks": [
@@ -388,7 +358,7 @@
                           "value": "Eco.Gameplay.Economy.BankAccount"
                         },
                         "requiredTag": null,
-                        "internalDescription": "Any",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
                         "entries": []
                       }
                     }
@@ -415,12 +385,7 @@
                           },
                           {
                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                            "name": "Evergreen infra - (T4 blocks)",
-                            "reference": true
-                          },
-                          {
-                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                            "name": "Evergreen infra - (Asphalt)",
+                            "name": "Evergreen infra - (T1 blocks)",
                             "reference": true
                           },
                           {
@@ -435,7 +400,12 @@
                           },
                           {
                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                            "name": "Evergreen infra - (T1 blocks)",
+                            "name": "Evergreen infra - (T4 blocks)",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                            "name": "Evergreen infra - (Asphalt)",
                             "reference": true
                           }
                         ]
@@ -455,7 +425,7 @@
                           "value": "Eco.Gameplay.Economy.Currency"
                         },
                         "requiredTag": null,
-                        "internalDescription": "Any",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
                         "entries": []
                       }
                     }
